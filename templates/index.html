@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static\css/index.css">
+</head>
+<body>
+
+    <!-- PRIMARY NAVIGATION BAR -->
+    <nav>
+        <div class="navbar">
+            <button class="menu-icon" onclick="openSideNavBar()">
+                Menu
+                <!-- <img src="../images/menuicon.png" alt=""> -->
+            </button>
+            <div class="company-name">
+                <!-- <img src="../images/bull_logo.png" alt=""> -->
+                <h1>STOCK PREDICTOR</h1>
+            </div>
+            <button class="user-icon">
+                User
+                <!-- <img src="../images/usericon.png" alt=""> -->
+            </button>
+        </div>
+    </nav>
+
+    <!-- SIDE NAVIGATION BAR -->
+    <div class="side-nav-bar">
+        
+        <!-- SIDE NAVBAR BUTTONS -->
+        <div class="sidebar-buttons">
+            <button><strong><a href="#">HOME</a></strong></button>
+            <button><strong><a href="#">ABOUT US</a></strong></button>
+            <button><strong><a href="#">CONTACT</a></strong></button>
+            <button><strong><a href="#">REVIEW</a></strong></button>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <!-- Form for uploading CSV file -->
+        <form action="/" method="post" enctype="multipart/form-data">
+            <h2>Upload CSV File</h2>
+            <label for="file">Choose a CSV file:</label>
+            <input type="file" name="file" id="file" accept=".csv" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <script src="../js/index.js"></script>
+</body>
+</html>

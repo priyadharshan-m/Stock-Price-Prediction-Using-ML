@@ -1,0 +1,147 @@
+/* index.css */
+
+/* Reset some default styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #02093d;
+    font-style: italic;
+    background-color: #fdb17b;
+}
+
+.company-name h1{
+    display: inline;
+}
+
+.menu-icon{
+    background-color: #fdb17b;
+    cursor: pointer;
+}
+
+.menu-icon:hover
+{
+    background-color: #ff8800;
+}
+
+.user-icon{
+    background-color: #fdb17b;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.user-icon:hover
+{
+    background-color: #ff8800;
+}
+
+.menu-icon img,
+.company-name img,
+.user-icon img {
+    width: 30px; /* Adjust as needed */
+    height: auto;
+    cursor: pointer;
+    /* background-color: #FF9BD2; */
+}
+
+/* @media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-icon img,
+    .company-name img,
+    .user-icon img {
+        width: 20px;
+    }
+} */
+
+.side-nav-bar{
+    /* height: 100%; */
+    width: 0;
+    background-color: #fdb17b;
+    display: none;
+    position: fixed;
+}
+
+.sidebar-buttons button{
+    display: block;
+    height: 100px;
+    width: 100%;
+    background-color: #fdb17b;
+}
+
+.sidebar-buttons a{
+    text-decoration: none;
+    font-style: italic;
+    color: #02093d;
+}
+
+.sidebar-buttons button:hover{
+    background-color: #ff8800;
+    border-top-color: #001eff;
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-right-color: #001eff;
+    border-right-style: solid;
+    border-right-width: 5px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 50px auto; /* Center the form */
+    background-color: #fff; /* White background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Style specific to the form button */
+.form-container button {
+    padding: 10px 20px;
+    background-color: #fdb17b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #ff8800;
+}

@@ -1,0 +1,79 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto; /* Center the container */
+    background-color: #ecf0f1; /* Light gray */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+.day-results {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.result {
+    width: 48%;
+    margin: 8px;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.result.buy {
+    background-color: #8bff8b; /* Light green for buy */
+    color: #005700;
+}
+
+.result.sell {
+    background-color: #ff8b8b; /* Light red for sell */
+    color: #570000;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-buttons {
+    float: left;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-buttons a:hover {
+    background-color: #555;
+}
+
+/* Apply the same color scheme to each section */
+.upload-section,
+.about-section {
+    background-color: #ecf0f1; /* Light gray */
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

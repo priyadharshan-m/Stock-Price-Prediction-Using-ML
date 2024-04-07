@@ -1,0 +1,66 @@
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense
+from tensorflow.keras.optimizers import Adam
+
+# Load the dataset
+data = pd.read_csv('AMZN.csv')
+data['Date'] = pd.to_datetime(data['Date'])
+data.set_index('Date', inplace=True)
+
+# Get the number of rows
+num_rows = data.shape[0]
+
+print(f"The number of rows in the CSV file is: {num_rows}")
+
+# Feature scaling
+scaler = MinMaxScaler()
+scaled_data = scaler.fit_transform(data[['Open', 'High', 'Low', 'Close','Adj Close', 'Volume']])
+
+# Define input sequences and target values
+X = []
+y = []
+look_back = 10  # Number of previous days to consider
+
+for i in range(look_back, len(data)):
+    X.append(scaled_data[i - look_back:i])
+    if data['Close'][i] > data['Open'][i]:
+        y.append(1)  # Buy signal
+    else:
+        y.append(0)  # Sell signal
+
+X = np.array(X)
+y = np.array(y)
+print(len(X))
+print(len(y))
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1 ,random_state=80)
+
+
+# Build the LSTM model
+model = Sequential()
+model.add(LSTM(units=50, activation='relu', input_shape=(X_train.shape[1], X_train.shape[2])))
+model.add(Dense(units=1, activation='sigmoid'))
+model.compile(optimizer=Adam(learning_rate=0.001), loss='binary_crossentropy', metrics=['accuracy'])
+
+# Train the model
+model.fit(X_train, y_train, epochs=20, batch_size=64)
+
+# Evaluate the model
+loss, accuracy = model.evaluate(X_test, y_test)
+print(f"Test Loss: {loss:.4f}, Test Accuracy: {accuracy:.4f}")
+
+# Make predictions
+predictions = model.predict(X_test)
+
+#Output buy/sell signals with probabilities
+#for i in range(len(predictions)):
+for i in range(10):
+    if predictions[i] > 0.5:
+        print(f"Day {i+1}: Buy Signal (Probability: {predictions[i][0]:.4f})")
+    else:
+        print(f"Day {i+1}: Sell Signal (Probability: {1 - predictions[i][0]:.4f})")

@@ -1,0 +1,32 @@
+<!-- results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Trading Signals - Results</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/results.css">
+</head>
+<body>
+        <!-- Navigation Bar -->
+        <div class="navbar">
+            <div class="nav-buttons">
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+
+    <!-- Display Prediction Results -->
+    <div class="container">
+        <h2>Trading Signals for the Next 10 Days</h2>
+        <div class="day-results">
+            {% for result in results %}
+                <div class="result {% if 'Buy' in result %}buy{% elif 'Sell' in result %}sell{% endif %}">{{ result }}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</body>
+</html>
